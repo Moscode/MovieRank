@@ -2,7 +2,7 @@ import e from 'express'
 import ReviewsDAO from '../dao/reviewsDAO.js'
 
 export default class ReviewsController{
-    static async apiPostReviews(req, res, next){
+    static async apiPostReview(req, res, next){
         try{
             const movieId = req.body.movie_id
             const review = req.body.review
@@ -35,8 +35,8 @@ export default class ReviewsController{
 
             const ReviewResponse = await ReviewsDAO.updateReview(
                 reviewId,
-                userId,
                 review,
+                userId,
                 date
             )
 
